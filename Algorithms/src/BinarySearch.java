@@ -1,7 +1,8 @@
 
 public class BinarySearch {
 	
-	//logn
+	//nlogn
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr = new int[10];
@@ -23,13 +24,13 @@ public class BinarySearch {
 		while(i<=j){
 			int mid = i+(j-i)/2;
 			
-			if(mid==data){
+			if(arr[mid]==data){
 				flag = true;
 				val=data;
 				break;
-			}else if(mid>data){
+			}else if(arr[mid]>data){
 				j = mid-1;
-			}else if(mid<data){
+			}else if(arr[mid]<data){
 				i = mid+1;
 			}
 			
@@ -40,6 +41,7 @@ public class BinarySearch {
 		}
 		else{
 			System.out.println("Not found");
+			
 		}
 		
 	}

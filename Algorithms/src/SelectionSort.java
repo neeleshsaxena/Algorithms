@@ -1,32 +1,29 @@
 import java.util.Scanner;
 
-public class BubbleSort {
+public class SelectionSort {
 	
 	
-	public static void sort(int[] arr){
-		
-		boolean switched = true;
-		for(int j=0;j<arr.length-1 && switched==true;j++){
-			switched = false;
-			
-			for(int k=0;k<arr.length-j-1;k++){
-		
-				if(arr[k]>arr[k+1]){
-					switched = true;
-					int temp = arr[k+1];
-					arr[k+1] = arr[k];
-					arr[k] = temp;
-					
+	public static void sort(int[] arr) {
+		for (int i = arr.length - 1; i > 0; i--) {
+
+			int large = arr[i];
+			int index = i;
+
+			for (int j = 0; j <= i; j++) {
+
+				if (arr[j] > large) {
+					large = arr[j];
+					index = j;
 				}
-				
+
 			}
-			
-			
+
+			arr[index] = arr[i];
+			arr[i] = large;
+
 		}
-		
-		
 	}
-	
+
 	private static void printArray(int[] ar) {
 	      for(int n: ar){
 	         System.out.print(n+" ");
@@ -34,10 +31,10 @@ public class BubbleSort {
 	        System.out.println("");
 	   }
 	
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
 		Scanner in = new Scanner(System.in);
 		
 		int size = in.nextInt();
@@ -48,6 +45,7 @@ public class BubbleSort {
 			
 		}
 		
+		
 		long start = System.nanoTime();
 		sort(arr);
 		long end = System.nanoTime();
@@ -56,8 +54,9 @@ public class BubbleSort {
 		
 		
 		
-		System.out.println("The Bubble sort was completed in "+duration+" nanoseconds");
+		System.out.println("The Selection sort was completed in "+duration+" nanoseconds");
 		printArray(arr);
-		
+
 	}
+
 }

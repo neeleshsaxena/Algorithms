@@ -41,16 +41,17 @@ public class SearchPairs {
 	        
 	        int pairs = 0;
 	        int j=0;
-	        int k=1;
-	            while(k<size){
-	                 int val = Math.abs(sortedArr[j] - sortedArr[k]);
+	        int k=sortedArr.length-1;
+	            while(j<k){
+	                 int val = Math.abs(sortedArr[j] + sortedArr[k]);
 	                if(val==value){
 	                    pairs++;
-	                    k++;
+	                    k--;
+	                    j++;
 	                }else if(val>value){
 	                    j++;
 	                }else if(val<value){
-	                    k++;
+	                    k--;
 	            }
 	               
 	                
